@@ -1,0 +1,95 @@
+{
+  "name": "radiofy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node src/app.js",
+    "lint": "eslint \"{src,__tests__,__mocks__}/**/*.js\"",
+    "fmt": "prettier --write \"{src,__tests__,__mocks__}/**/*.js\"",
+    "fix": "eslint --fix \"{src,__tests__,__mocks__}/**/*.js\"",
+    "beautify": "npm run fmt && npm run fix",
+    "coverage": "jest -c=coverage.json",
+    "readme": "documentation readme -s=API src/libs/song-list.js",
+    "docs": "documentation build -f html -o docs/"
+  },
+  "author": "Vladimir Korzhev",
+  "license": "MIT",
+  "dependencies": {
+    "command-line-args": "^5.0.2",
+    "got": "^9.3.2",
+    "htmlparser2": "^3.10.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^7.2.1",
+    "@commitlint/config-conventional": "^7.1.2",
+    "documentation": "^8.1.2",
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-import": "^2.14.0",
+    "husky": "^1.1.4",
+    "jest": "^23.6.0",
+    "lint-staged": "^8.0.5",
+    "prettier": "^1.15.2"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -e",
+      "pre-commit": "npm run readme && git add README.md && lint-staged && npm test",
+      "post-commit": "git update-index --again"
+    }
+  },
+  "prettier": {
+    "singleQuote": true,
+    "printWidth": 100
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "engines": {
+    "node": ">= 10.0.0",
+    "npm": ">= 6.0.0"
+  },
+  "files": [
+    "src/*.js"
+  ],
+  "eslintConfig": {
+    "extends": [
+      "airbnb-base",
+      "prettier"
+    ],
+    "rules": {
+      "no-plusplus": "off",
+      "no-underscore-dangle": "off",
+      "global-require": "warn",
+      "import/no-dynamic-require": "warn",
+      "import/no-unresolved": "warn"
+    }
+  },
+  "jest": {
+    "automock": false,
+    "collectCoverage": true,
+    "coverageReporters": [
+      "text-summary"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 75,
+        "functions": 75,
+        "lines": 75,
+        "statements": 75
+      }
+    }
+  }
+}

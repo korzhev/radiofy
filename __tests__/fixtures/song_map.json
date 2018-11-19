@@ -1,0 +1,39 @@
+{
+  "p": [
+    {
+      "firstLetter": "p",
+      "lastLetter": "c",
+      "name": "Peace Traic",
+      "id": "3276",
+      "duration": 206706
+    }
+  ],
+  "c": [
+    {
+      "firstLetter": "c",
+      "lastLetter": "e",
+      "name": "Candy Everybody Wants (unplugge)",
+      "id": "3332",
+      "duration": 199575
+    },
+    {
+      "firstLetter": "c",
+      "lastLetter": "g",
+      "name": "Candy Everybody Wantg",
+      "id": "3479",
+      "duration": 188238
+    }
+  ],
+  "e": [
+    { "firstLetter": "e", "lastLetter": "p", "name": "9Edep", "id": "3277", "duration": 250383 }
+  ],
+  "g": [
+    {
+      "firstLetter": "g",
+      "lastLetter": "c",
+      "name": "Get Ready For This (Orchestral Mic)",
+      "id": "3731",
+      "duration": 327471
+    }
+  ]
+}
