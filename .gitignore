@@ -64,4 +64,6 @@ docs
 
 .idea/
 
+files/*.json
+
 .vscode/
