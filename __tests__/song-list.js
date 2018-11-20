@@ -40,6 +40,7 @@ describe('SongList', () => {
     const sl = new SongList(songMapFixture);
     sl.getPlaylist(10, true);
     sl.getPlaylist(10, false);
+    sl.getPlaylist(10);
     const playlist = sl.getPlaylist(10, false);
     expect(playlist.length).toBeLessThanOrEqual(10);
     playlist.forEach((song, i, arr) => {

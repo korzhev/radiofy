@@ -1,28 +1,34 @@
 /**
- *
- * @param {Array<*>} a
- * @returns {number}
+ * helper.js - Helper functions
+ * @namespace helpers
  */
-function randomIndex(a) {
+/**
+ * Get random index of array
+ * @private
+ * @param {Array<*>} a - array
+ * @returns {number} - index
+ */
+function randomIndex(a = []) {
   return Math.floor(Math.random() * a.length);
 }
 
 /**
- *
- * @param {Array<T>} a -
- * @returns {T}
+ * Get random element from array
+ * @param {Array<T>} a - array
+ * @returns {T} - element
  */
-exports.getRandomFromArray = a => a[randomIndex(a)];
+exports.getRandomFromArray = (a = []) => a[randomIndex(a)];
 
 /**
- *
- * @param {Array<T>} a -
- * @returns {T}
+ * Get and remove element from array
+ * @param {Array<T>} a - array
+ * @returns {T} - element
  */
-exports.spliceRandomFromArray = a => a.splice(randomIndex(a), 1)[0];
+exports.spliceRandomFromArray = (a = []) => a.splice(randomIndex(a), 1)[0];
 
 /**
- *
+ * Count duration delta with some diviation
+ * @private
  * @param {number} duration
  * @param {number} playlistDuration
  * @param {number} playlistDurationDelta

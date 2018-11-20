@@ -11,7 +11,7 @@
     "fix": "eslint --fix \"{src,__tests__,__mocks__}/**/*.js\"",
     "beautify": "npm run fmt && npm run fix",
     "coverage": "jest -c=coverage.json",
-    "readme": "documentation readme -s=API src/libs/song-list.js",
+    "readme": "documentation readme -s=src/libs src/libs/song-list.js src/libs/prepare.js",
     "docs": "documentation build -f html -o docs/"
   },
   "author": "Vladimir Korzhev",

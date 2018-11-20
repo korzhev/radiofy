@@ -3,10 +3,21 @@ const xmlParser = require('htmlparser2');
 const { writeFileSync } = require('fs');
 
 /**
+ * Not exported Song type description
+ * @typedef {Object} Song
+ * @property {string} lastLetter - last letter of sanitised name
+ * @property {string} firstLetter - first letter of sanitised name
+ * @property {string} id - song id
+ * @property {string} name - song name
+ * @property {number} duration - song duration in ms
+ */
+
+/**
  * Download, prepare and save song list
  * @param {string} url - http url with xml for download
  * @param {string} [path] - file path to save
- * @returns {Promise<Object<string, Array<Object>>>} Structure where songs info is stored for fast search
+ * @returns {Promise<Object<string, Array<Song>>>} - Structure where songs info is stored for fast
+ * search
  */
 module.exports = (url, path = './files/feed.json') =>
   new Promise((resolve, reject) => {
@@ -18,6 +29,7 @@ module.exports = (url, path = './files/feed.json') =>
             if (!(attr.name && attr.duration && attr.id)) {
               return;
             }
+            // sanitise song name
             const sanitised = attr.name.toLowerCase().replace(/[^a-z]/g, '');
             if (!sanitised) {
               return;
